@@ -1,0 +1,8 @@
+{
+  "name": "phonegap-cordovaReady",
+  "version": "1.0.0",
+  "main": "cordovaReady.js",
+  "dependencies": {
+   
+  }
+}
