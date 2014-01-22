@@ -1,5 +1,5 @@
 {
-  "name": "phonegap-cordovaReady",
+  "name": "phonegap-ready",
   "version": "1.0.0",
   "main": "cordovaReady.js",
   "dependencies": {
