@@ -1,9 +1,9 @@
-//Flag to ask if Phonegap is ready
-function setFlagPhonegap(){
-  window.isPhonegapReady = true;
+//Flag to ask if Cordova is ready
+function setFlagCordova(){
+  window.isCordovaReady = true;
 }
 // Wait for device API libraries to load
-document.addEventListener("deviceready",setFlagPhonegap,false);
+document.addEventListener("deviceready",setFlagCordova,false);
 
 function cordovaReady (fn,callbackCordovaNoReady,timeout){
   //5 seconds timeout for default if not defined by the user.
@@ -11,25 +11,25 @@ function cordovaReady (fn,callbackCordovaNoReady,timeout){
   if(timeout){
     timeoutDeviceReady = timeout;
   }  
-  //Check the flag if Phonegap and plugins are ready.
-  if (window.isPhonegapReady) {
+  //Check the flag if Cordova and plugins are ready.
+  if (window.isCordovaReady) {
     console.log('Cordova is ready for use! :)');
     return fn.apply(this,arguments);
   } 
   else {
     var mainArgs = arguments;
-    //Flag to set if phonegap is ready if 'devideready' is fired.
+    //Flag to set if Cordova is ready if 'devideready' is fired.
     var ready = false;
-    //Callback to apply function is phonegap is fired.
+    //Callback to apply function is Cordova is fired.
     var applyCordovaFunction = function () {
-      //Set flag to true because phonegap fire 'deviceready'
+      //Set flag to true because Cordova fire 'deviceready'
       ready = true;
       return fn.apply(this,mainArgs);
     };
     
-    //Remove listener 'deviceready' with handler to set isPhonegapReady
-    document.removeEventListener('deviceready', setFlagPhonegap ,false);
-    //Listener with handler to apply phonegap function
+    //Remove listener 'deviceready' with handler to set isCordovaReady
+    document.removeEventListener('deviceready', setFlagCordova ,false);
+    //Listener with handler to apply Cordova function
     document.addEventListener('deviceready', applyCordovaFunction, false);
     //If timeout end evaluate if callback for handle no ready is defined to apply.
     setTimeout(function() {

@@ -1,5 +1,5 @@
 #phonegap-ready v.1.0.0
-Bower Component for using Phonegap and check that the Phonegap api is available for use.
+Bower Component for using Apache Cordova and check that the Cordova API is available for use.
 
 ## How to use it
 1. `bower install phonegap-ready`
